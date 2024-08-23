@@ -1,0 +1,89 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smarket</title>
+</head>
+<body>
+    <h1>Welcome to our Supermarket !!!</h1>
+    <br><br><br>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro exercitationem possimus soluta obcaecati cumque! Molestiae earum rerum qui,
+         excepturi numquam libero voluptatem. Ullam fuga modi inventore quasi nobis laboriosam veritatis.</p>
+    <br><br><br>
+    <button id="sign-up-button" type="button">signup</button>
+    <button id="sign-in-button" type="button"> signin</button>
+
+   
+    
+</body>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.js"></script>
+ 
+ <script>
+      $("#sign-up-button").validate({
+                rules: {
+                },
+                messages: {    
+                },
+                clickHandler: signup_button	
+              });
+      function signup_button(){
+              $.ajax({
+              url: '/index',
+              // data: fd,
+              contentType: false,
+              processData: false,
+              // type: 'POST',
+            //   beforeSend: function(){	
+            //   },
+              success: function(response){	
+                          //  var responseData = jQuery.parseJSON(JSON.stringify(response));
+                          //  var usersignupresponse = responseData["usersignupresponse"];
+                          //  var statuscode = usersignupresponse["status_code"];
+                           //alert(statuscode);
+                          // $("body").append(statuscode);
+                          window.location.href='/signup'; 
+                }
+                });
+      }
+      
+ </script>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smarket</title>
+</head>
+<body>
+    <h1>Welcome to our Supermarket !!!</h1>
+    <br><br><br>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro exercitationem possimus soluta obcaecati cumque! Molestiae earum rerum qui,
+         excepturi numquam libero voluptatem. Ullam fuga modi inventore quasi nobis laboriosam veritatis.</p>
+    <br><br><br>
+    <a href ='/signup' id="sign-up-button" >Sign Up</a>
+    <a href ='/signin' id="sign-in-button" >Sign in</a>
+</body>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script>
+    $(document).ready(function(){
+        
+        $("#sign-up-button").click(function(){
+            
+            window.location.href = '/signup';
+        });
+
+       
+        $("#sign-in-button").click(function(){
+           
+            window.location.href = '/signin'; 
+        });
+    });
+</script>
+
+</html>

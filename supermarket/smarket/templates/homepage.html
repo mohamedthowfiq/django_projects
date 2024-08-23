@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+</style>
+<body>
+    <p>MyHome Page</p>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.js"></script>
+  <script>
+    $("#signup-form").validate({
+                  rules: {
+                  },
+                  messages: {    
+                  },
+                  submitHandler: signup	
+                });
+    function signup()
+    {        
+          var usersignupdata = $('#signup-form').serializeArray();
+          var fd = new FormData();
+      
+      
+      $.each(usersignupdata,function(key,input){
+      fd.append(input.name,input.value);
+      console.log(input.name+','+input.value);
+      });   
+      $.ajax({
+      url: '/signup',
+      data: fd,
+      contentType: false,
+      processData: false,
+      type: 'POST',
+      beforeSend: function(){	
+        },
+      success: function(response){	
+        var responseData = jQuery.parseJSON(JSON.stringify(response));
+                  var usersignupresponse = responseData["usersignupresponse"];
+                  var statuscode = usersignupresponse["status_code"];
+                  //alert(statuscode);
+                  $("body").append(statuscode);
+                  }
+                  });
+                  }
+  </script>
+
+</body>
+</html>
